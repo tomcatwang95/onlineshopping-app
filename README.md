@@ -4,6 +4,8 @@ Contributors: David, Maggie, Kevin
 
 Tech Stack: Front-end: React,redux, bootstrap/mui Back-end: Java spring boot, PostgreSQL
 
+For branch name, please use like this format: `onlineapp001`
+
 
 In the project directory, you can run:
 
