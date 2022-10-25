@@ -6,6 +6,9 @@ Tech Stack: Front-end: React,redux, bootstrap/mui Back-end: Java spring boot, Po
 
 For branch name, please use like this format: `onlineapp001`
 
+For code checking, we use `eslint`. Here is some documents about it: 
+https://github.com/eslint/eslint
+
 
 In the project directory, you can run:
 
