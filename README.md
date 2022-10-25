@@ -1,8 +1,9 @@
-# Getting Started with Create React App
+### `This is a project for a simplie online shopping website`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Contributors: David, Maggie, Kevin
 
-## Available Scripts
+Tech Stack: Front-end: React,redux, bootstrap/mui Back-end: Java spring boot, PostgreSQL
+
 
 In the project directory, you can run:
 
