@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import "./Btnstyles.css";
 
 const users = [
   {
@@ -7,11 +10,13 @@ const users = [
     email: "pengy6@miamioh.edu"
   }
 ];
+
 function Login() {
   const [data, setData] = useState({
     username: "",
     password: "",
-    email: ""
+    email: "",
+    showPassword: false
   });
 
   const changeHandler = (e) => {
@@ -21,32 +26,48 @@ function Login() {
   const checkUser = () => {
     const usercheck = users.find(
       (user) =>
-        user.username === data.username && user.password === data.password && user.email === data.email
+        user.username === data.username &&
+        user.password === data.password &&
+        user.email === data.email
     );
+    if (usercheck) {
+      alert("Login success");
+    } else {
+      alert("Wrong password or username");
+    }
   };
+
+  const toggleButton = () => {
+    setData({ ...data, showPassword: !data.showPassword });
+  };
+
   return (
-    <div className="app">
+    <div className="login">
       <h1>Login Page</h1>
-      <div className="input-text">
+      <div className="name-input">
         Name:
         <input
           type="text"
+          name="username"
           value={data.username}
           placeholder="username..."
           onChange={changeHandler}
         />
       </div>
-      <div>
+      <div className="password-input">
         Password:
         <input
-          type="text"
+          type={data.showPassword ? "text" : "password"}
           placeholder="password..."
           name="password"
           value={data.password}
           onChange={changeHandler}
         />
+        <button className="btn" onClick={toggleButton}>
+          {data.showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+        </button>
       </div>
-      <div>
+      <div className="email-input">
         Email:
         <input
           type="text"
@@ -56,7 +77,20 @@ function Login() {
           onChange={changeHandler}
         />
       </div>
-      <button onClick={checkUser}>Login</button>
+      <button
+        style={{ backgroundColor: "lightblue", borderRadius: 10 }}
+        onClick={checkUser}
+      >
+        Login
+      </button>
+      <div>
+        <span>
+          Don't have account? <Link to="/Signup">Signup</Link>
+        </span>{" "}
+        <span>
+          <Link to="/">Home</Link>
+        </span>
+      </div>
     </div>
   );
 }
