@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import "./Login.css";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
-const users = [
+const userData = [
   {
     username: "Jason",
     password: "12345@",
@@ -11,7 +10,7 @@ const users = [
   }
 ];
 
-function Login() {
+function Signup() {
   const [data, setData] = useState({
     username: "",
     password: "",
@@ -23,17 +22,15 @@ function Login() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const checkUser = () => {
-    const usercheck = users.find(
+  const checkSignup = () => {
+    const usercheck = userData.find(
       (user) =>
         user.username === data.username &&
         user.password === data.password &&
         user.email === data.email
     );
     if (usercheck) {
-      alert("Login success");
-    } else {
-      alert("Wrong password or username");
+      alert("Signup successful!");
     }
   };
 
@@ -42,9 +39,9 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <h1>Login Page</h1>
-      <div className="name-input">
+    <div className="signup">
+      <h1>Signup Page</h1>
+      <div className="username">
         Name:
         <input
           type="text"
@@ -54,7 +51,7 @@ function Login() {
           onChange={changeHandler}
         />
       </div>
-      <div className="password-input">
+      <div>
         Password:
         <input
           type={data.showPassword ? "text" : "password"}
@@ -67,31 +64,21 @@ function Login() {
           {data.showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
         </button>
       </div>
-      <div className="email-input">
+      <div className="email">
         Email:
         <input
           type="text"
-          placeholder="email..."
           name="email"
           value={data.email}
+          placeholder="email..."
           onChange={changeHandler}
         />
       </div>
-      <button
-        style={{ backgroundColor: "lightblue", borderRadius: 10 }}
-        onClick={checkUser}
-      >
-        Login
-      </button>
+      <button onClick={checkSignup}>Signup</button>
       <div>
-        <span>
-          Don't have account? <Link to="/Signup">Signup</Link>
-        </span>{" "}
-        <span>
-          <Link to="/">Home</Link>
-        </span>
+        Already have an account? <Link to="/login">Login</Link>{" "}
       </div>
     </div>
   );
 }
-export default Login;
+export default Signup;
