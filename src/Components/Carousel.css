@@ -1,0 +1,27 @@
+.imageslider {
+  position: relative;
+  display: flex;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 400px;
+  height: 300px;
+  border-radius: 15px;
+}
+
+.left-arrow {
+  font-size: 2em;
+  position: absolute;
+  left: 2px;
+  cursor: pointer;
+}
+
+.right-arrow {
+  font-size: 2em;
+  position: absolute;
+  right: 2px;
+  cursor: pointer;
+}

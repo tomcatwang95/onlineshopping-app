@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import ReactRouter from "./Routes/Routes";
 
 function App() {
   return (
     <div className="App">
-      Online Shopping App 
+      <ReactRouter />
     </div>
   );
 }
